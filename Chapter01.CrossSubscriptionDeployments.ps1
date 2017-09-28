@@ -8,7 +8,7 @@ New-AzureRmResourceGroup -Name crossSubscriptionDeployment -Location eastus2euap
 
 #Select "local" subscription + create deployment
 Select-AzureRmSubscription -SubscriptionId 9167af2d-c13e-4d34-9a57-8f37dba6ff31
-New-AzureRmResourceGroupDeployment -ResourceGroupName localRG -TemplateFile .\Chapter01.CrossSubscriptionDeployments.json -StorageAccountName1 ryjoneslocalrg1 -StorageAccountName2 ryjonescrosssubsa
+New-AzureRmResourceGroupDeployment -ResourceGroupName localRG -TemplateUri https://raw.githubusercontent.com/rjmax/IgniteUS2017/master/Chapter01.CrossSubscriptionDeployments.json -StorageAccountName1 ryjoneslocalrg1 -StorageAccountName2 ryjonescrosssubsa
 
 #Get storage account in local RG
 (Get-AzureRmStorageAccount -ResourceGroupName localRG).Id
